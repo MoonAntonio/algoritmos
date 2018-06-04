@@ -25,6 +25,7 @@ namespace MoonAntonio
 		/// <para>Todas las escenas.</para>
 		/// </summary>
 		public List<Transform> escenas = new List<Transform>();
+		public List<RectTransform> posUI = new List<RectTransform>();
 		#endregion
 
 		#region Variables Publicas UI
@@ -40,11 +41,59 @@ namespace MoonAntonio
 		public Toggle randomBusqueda;
 		#endregion
 
+		#region Variables Privadas
+		public bool tempInit = false;
+		public List<int> numeracion = new List<int>(9);
+		#endregion
+
 		#region Variables Protegidas
 		/// <summary>
 		/// <para>Id del algoritmo.</para>
 		/// </summary>
-		protected int idAlgoritmo = 0;
+		public int idAlgoritmo = 0;
+
+		public List<RectTransform> posUISave = new List<RectTransform>();
+		#endregion
+
+		#region Inicializadores
+		private void Start()
+		{
+			foreach (RectTransform n in posUI)
+			{
+				posUISave.Add(n);
+			}
+		}
+		#endregion
+
+		#region Actualizadores
+		private void Update()
+		{
+			if (tempInit) return;
+			switch (idAlgoritmo)
+			{
+				case 0:
+					
+					break;
+
+				case 1:
+					break;
+
+				case 2:
+					break;
+
+				case 3:
+					break;
+
+				case 4:
+					break;
+
+				case 5:
+					break;
+
+				default:
+					break;
+			}
+		}
 		#endregion
 
 
@@ -55,8 +104,23 @@ namespace MoonAntonio
 		/// <param name="id"></param>
 		public void SetID(int id)
 		{
+			tempInit = false;
 			idAlgoritmo = id;
 			ResetEscena(id);
+		}
+
+		public void IniciarAlgoritmo()
+		{
+			tempInit = true;
+		}
+
+		public void Desordenar()
+		{
+			for (int n = 0; n < numeracion.Count; n++)
+			{
+				numeracion[n] = Random.Range(0, 9);
+				posUI[n].position = posUISave[numeracion[n]].position;
+			}
 		}
 		#endregion
 
@@ -119,7 +183,6 @@ namespace MoonAntonio
 					descripcionOrdenacion.text = "Es una manera muy natural de ordenar para un ser humano, y puede usarse fácilmente para ordenar un mazo de cartas numeradas en forma arbitraria. Requiere O(n²) operaciones para ordenar una lista de n elementos.";
 					efectividadOrdenacion.value = 50.2f;
 					velocidadBusqueda.value = 20.2f;
-					randomOrdenacion.isOn = false;
 					break;
 
 				case 1:
@@ -127,7 +190,6 @@ namespace MoonAntonio
 					descripcionOrdenacion.text = "Funciona revisando cada elemento de la lista que va a ser ordenada con el siguiente, intercambiándolos de posición si están en el orden equivocado.";
 					efectividadOrdenacion.value = 70.7f;
 					velocidadBusqueda.value = 60.6f;
-					randomOrdenacion.isOn = false;
 					break;
 
 				case 2:
@@ -135,7 +197,6 @@ namespace MoonAntonio
 					descripcionOrdenacion.text = "Este algoritmo realiza muchas menos operaciones intercambiar() que el de la burbuja, por lo que lo mejora en algo.";
 					efectividadOrdenacion.value = 90.9f;
 					velocidadBusqueda.value = 90.9f;
-					randomOrdenacion.isOn = false;
 					break;
 
 				case 3:
@@ -143,7 +204,6 @@ namespace MoonAntonio
 					descripcionOrdenacion.text = "Este algoritmo consiste en almacenar todos los elementos del vector a ordenar en un monton, y luego extraer el nodo que queda como nodo raíz del montículo en sucesivas iteraciones obteniendo el conjunto ordenado.";
 					efectividadOrdenacion.value = 80.8f;
 					velocidadBusqueda.value = 70.7f;
-					randomOrdenacion.isOn = false;
 					break;
 
 				case 4:
@@ -151,7 +211,6 @@ namespace MoonAntonio
 					descripcionBusqueda.text = "A* encuentra, siempre y cuando se cumplan unas determinadas condiciones, el camino de menor coste entre un nodo origen y uno objetivo.";
 					efectividadBusqueda.value = 50.5f;
 					velocidadBusqueda.value = 90.9f;
-					randomBusqueda.isOn = false;
 					break;
 
 				case 5:
@@ -159,7 +218,6 @@ namespace MoonAntonio
 					descripcionBusqueda.text = "La idea subyacente en este algoritmo consiste en ir explorando todos los caminos más cortos que parten del vértice origen y que llevan a todos los demás vértices.";
 					efectividadBusqueda.value = 80.8f;
 					velocidadBusqueda.value = 50.5f;
-					randomBusqueda.isOn = false;
 					break;
 
 				default:
@@ -167,7 +225,6 @@ namespace MoonAntonio
 					descripcionOrdenacion.text = "Es una manera muy natural de ordenar para un ser humano, y puede usarse fácilmente para ordenar un mazo de cartas numeradas en forma arbitraria. Requiere O(n²) operaciones para ordenar una lista de n elementos.";
 					efectividadOrdenacion.value = 5.2f;
 					velocidadBusqueda.value = 2.2f;
-					randomOrdenacion.isOn = false;
 					break;
 			}
 		}

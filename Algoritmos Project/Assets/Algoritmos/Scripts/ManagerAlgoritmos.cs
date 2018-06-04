@@ -117,56 +117,56 @@ namespace MoonAntonio
 				case 0:
 					headerOrdenacion.text = "Inserción";
 					descripcionOrdenacion.text = "Es una manera muy natural de ordenar para un ser humano, y puede usarse fácilmente para ordenar un mazo de cartas numeradas en forma arbitraria. Requiere O(n²) operaciones para ordenar una lista de n elementos.";
-					efectividadOrdenacion.value = 0.2f;
-					velocidadBusqueda.value = 0.2f;
+					efectividadOrdenacion.value = 50.2f;
+					velocidadBusqueda.value = 20.2f;
 					randomOrdenacion.isOn = false;
 					break;
 
 				case 1:
 					headerOrdenacion.text = "Burbuja";
 					descripcionOrdenacion.text = "Funciona revisando cada elemento de la lista que va a ser ordenada con el siguiente, intercambiándolos de posición si están en el orden equivocado.";
-					efectividadOrdenacion.value = 0.7f;
-					velocidadBusqueda.value = 0.6f;
+					efectividadOrdenacion.value = 70.7f;
+					velocidadBusqueda.value = 60.6f;
 					randomOrdenacion.isOn = false;
 					break;
 
 				case 2:
 					headerOrdenacion.text = "Selección";
 					descripcionOrdenacion.text = "Este algoritmo realiza muchas menos operaciones intercambiar() que el de la burbuja, por lo que lo mejora en algo.";
-					efectividadOrdenacion.value = 0.9f;
-					velocidadBusqueda.value = 0.9f;
+					efectividadOrdenacion.value = 90.9f;
+					velocidadBusqueda.value = 90.9f;
 					randomOrdenacion.isOn = false;
 					break;
 
 				case 3:
 					headerOrdenacion.text = "Montones";
-					descripcionOrdenacion.text = "Este algoritmo consiste en almacenar todos los elementos del vector a ordenar en un montículo (heap), y luego extraer el nodo que queda como nodo raíz del montículo (cima) en sucesivas iteraciones obteniendo el conjunto ordenado.";
-					efectividadOrdenacion.value = 0.8f;
-					velocidadBusqueda.value = 0.7f;
+					descripcionOrdenacion.text = "Este algoritmo consiste en almacenar todos los elementos del vector a ordenar en un monton, y luego extraer el nodo que queda como nodo raíz del montículo en sucesivas iteraciones obteniendo el conjunto ordenado.";
+					efectividadOrdenacion.value = 80.8f;
+					velocidadBusqueda.value = 70.7f;
 					randomOrdenacion.isOn = false;
 					break;
 
 				case 4:
 					headerBusqueda.text = "A*";
 					descripcionBusqueda.text = "A* encuentra, siempre y cuando se cumplan unas determinadas condiciones, el camino de menor coste entre un nodo origen y uno objetivo.";
-					efectividadBusqueda.value = 0.5f;
-					velocidadBusqueda.value = 0.9f;
+					efectividadBusqueda.value = 50.5f;
+					velocidadBusqueda.value = 90.9f;
 					randomBusqueda.isOn = false;
 					break;
 
 				case 5:
 					headerBusqueda.text = "Dijkstra";
 					descripcionBusqueda.text = "La idea subyacente en este algoritmo consiste en ir explorando todos los caminos más cortos que parten del vértice origen y que llevan a todos los demás vértices.";
-					efectividadBusqueda.value = 0.8f;
-					velocidadBusqueda.value = 0.5f;
+					efectividadBusqueda.value = 80.8f;
+					velocidadBusqueda.value = 50.5f;
 					randomBusqueda.isOn = false;
 					break;
 
 				default:
 					headerOrdenacion.text = "Inserción";
 					descripcionOrdenacion.text = "Es una manera muy natural de ordenar para un ser humano, y puede usarse fácilmente para ordenar un mazo de cartas numeradas en forma arbitraria. Requiere O(n²) operaciones para ordenar una lista de n elementos.";
-					efectividadOrdenacion.value = 0.2f;
-					velocidadBusqueda.value = 0.2f;
+					efectividadOrdenacion.value = 5.2f;
+					velocidadBusqueda.value = 2.2f;
 					randomOrdenacion.isOn = false;
 					break;
 			}
